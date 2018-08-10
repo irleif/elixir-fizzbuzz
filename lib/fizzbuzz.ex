@@ -17,11 +17,13 @@ defmodule Fizzbuzz do
   end
 
   defp fizzbuzz(number) do
-    case {rem(number, 3), rem(number, 5), number} do
-      {0, 0, _} -> "FizzBuzz"
-      {0, _, _} -> "Fizz"
-      {_, 0, _} -> "Buzz"
-      {_, _, _} -> number
+    n = {rem(number, 3), rem(number, 5), number}
+
+    case n do
+      {0, 0, _} -> {:ok, :fizz_buzz}
+      {0, _, _} -> {:ok, :fizz}
+      {_, 0, _} -> {:ok, :buzz}
+      {_, _, _} -> {:ok, number}
     end
   end
 end
