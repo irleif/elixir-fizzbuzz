@@ -12,21 +12,16 @@ defmodule Fizzbuzz do
       :world
 
   """
-  def run do
-    fizzbuzz = fn n1, n2, n3 ->
-      case {n1, n2, n3} do
-        {0, 0, _} -> "FizzBuzz"
-        {0, _, _} -> "Fizz"
-        {_, 0, _} -> "Buzz"
-        {_, _, _} -> n3
-      end
+  def run(number) do
+    fizzbuzz(number)
+  end
+
+  defp fizzbuzz(number) do
+    case {rem(number, 3), rem(number, 5), number} do
+      {0, 0, _} -> "FizzBuzz"
+      {0, _, _} -> "Fizz"
+      {_, 0, _} -> "Buzz"
+      {_, _, _} -> number
     end
-
-    result =
-      for n <- 1..100 do
-        fizzbuzz.(rem(n, 3), rem(n, 5), n)
-      end
-
-    Enum.map(result, fn n -> IO.puts(n) end)
   end
 end
