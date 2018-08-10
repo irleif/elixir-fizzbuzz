@@ -12,11 +12,24 @@ defmodule Fizzbuzz do
       :world
 
   """
-  def run(number) do
-    fizzbuzz(number)
+
+  def run(numbers) do
+    n = numbers
+
+    case n do
+      n when is_integer(n) ->
+        {:ok, result} = check(n)
+        result
+
+      n when is_list(n) ->
+        for n <- 1..length(n) do
+          {:ok, result} = check(n)
+          result
+        end
+    end
   end
 
-  defp fizzbuzz(number) do
+  defp check(number) do
     n = {rem(number, 3), rem(number, 5), number}
 
     case n do
