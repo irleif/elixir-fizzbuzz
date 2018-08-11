@@ -1,48 +1,50 @@
 defmodule Fizzbuzz do
   @moduledoc """
-  Documentation for FizzBuzz.
-  """
+  Simple Elixir implementation of [the Fizz-Buzz Test](http://wiki.c2.com/?FizzBuzzTest).
 
-  @doc """
-  Simple implementation of [FizzBuzz](http://wiki.c2.com/?FizzBuzzTest) in Elixir.
+  ## Program Logic
 
-  ## Description
+  * Fizzbuzz.check() returns the numbers from N1 through N2, except:
+  ** For multiples of 3, the atom ':fizz' will be returned instead of the number.
+  ** For multiples of 5, the atom ':buzz' will be returned instead of the number.
+  ** For multiples of both 3 and 5, the atom ':fizz_buzz' will be returned instead of the number.
+  ** For 0, instead of returning the atom ':fizz_buzz', 0 will be returned.
 
-  Write a program that prints the numbers from 1 to 100.
-  For multiples of three print “Fizz” instead of the number and for the multiples of five print "Buzz".
-  For numbers which are multiples of both three and five print "FizzBuzz".
+  As input, the program accepts numbers, lists and ranges.
 
   ## Examples
 
-      iex> Fizzbuzz.run(15)
-      :fizz_buzz
+  iex> Fizzbuzz.check(15)
+  :fizz_buzz
 
-      iex> Fizzbuzz.run([1, 2, 3, 5, 8, 13, 21])
-      [1, 2, :fizz, :buzz, 8, 13, :fizz]
+  iex> Fizzbuzz.check([1, 2, 3, 5, 8, 13, 21])
+  [1, 2, :fizz, :buzz, 8, 13, :fizz]
 
-      iex> Fizzbuzz.run(1..15)
-      [1, 2, :fizz, 4, :buzz, :fizz, 7, 8, :fizz, :buzz, 11, :fizz, 13, 14, :fizz_buzz]
-
+  iex> Fizzbuzz.check(1..15)
+  [1, 2, :fizz, 4, :buzz, :fizz, 7, 8, :fizz, :buzz, 11, :fizz, 13, 14, :fizz_buzz]
   """
 
-  def run(numbers) do
+  @doc """
+  Check input data type, then do FizzBuzz-check for each value accordingly.
+  """
+  def check(numbers) do
     n = numbers
 
     case n do
       n when is_integer(n) ->
-        check(n)
+        check_number(n)
 
       n when is_list(n) ->
-        Enum.map(n, fn n -> check(n) end)
+        Enum.map(n, fn n -> check_number(n) end)
 
       n = %Range{} ->
         for n <- n do
-          check(n)
+          check_number(n)
         end
     end
   end
 
-  defp check(number) do
+  defp check_number(number) do
     n = {rem(number, 3), rem(number, 5), number}
 
     case n do
