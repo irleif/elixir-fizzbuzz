@@ -2,9 +2,11 @@ defmodule Fizzbuzz do
   @moduledoc """
   Simple Elixir implementation of [the Fizz-Buzz Test](http://wiki.c2.com/?FizzBuzzTest).
 
+  This is the very first program I wrote as an excersize when learning Elixir.
+
   ## Program Logic
 
-  * Fizzbuzz.check() returns the numbers from N1 through N2, except:
+  * Fizzbuzz.check() returns the numbers it receives, with the following rules applied:
   ** For multiples of 3, the atom ':fizz' will be returned instead of the number.
   ** For multiples of 5, the atom ':buzz' will be returned instead of the number.
   ** For multiples of both 3 and 5, the atom ':fizz_buzz' will be returned instead of the number.
