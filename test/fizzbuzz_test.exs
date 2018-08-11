@@ -2,6 +2,11 @@ defmodule FizzbuzzTest do
   use ExUnit.Case
   doctest Fizzbuzz
 
+  test "if number is 0, return 0" do
+    assert Fizzbuzz.run(0) == 0
+    assert Fizzbuzz.run([0, 0, 0]) == [0, 0, 0]
+  end
+
   test "if number is multiple of 3, return :fizz" do
     assert Fizzbuzz.run(3) == :fizz
     assert Fizzbuzz.run([3, 6, 9]) == [:fizz, :fizz, :fizz]
@@ -19,6 +24,6 @@ defmodule FizzbuzzTest do
 
   test "if number is multiples of neither 3 nor 5, return the number" do
     assert Fizzbuzz.run(1) == 1
-    assert Fizzbuzz.run([0, 1, 2]) == [0, 1, 2]
+    assert Fizzbuzz.run([1, 2, 4]) == [1, 2, 4]
   end
 end
