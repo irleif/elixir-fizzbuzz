@@ -8,17 +8,11 @@ defmodule Fizzbuzz do
 
   ## Examples
 
-      iex> Fizzbuzz.run(1)
-      1
-
-      iex> Fizzbuzz.run(3)
-      :fizz
-
-      iex> Fizzbuzz.run(5)
-      :buzz
-
       iex> Fizzbuzz.run(15)
       :fizz_buzz
+
+      iex> Fizzbuzz.run([1, 2, 3, 5, 8, 13, 21])
+      [1, 2, :fizz, :buzz, 8, 13, :fizz]
 
   """
 
@@ -38,6 +32,7 @@ defmodule Fizzbuzz do
     n = {rem(number, 3), rem(number, 5), number}
 
     case n do
+      {0, 0, 0} -> 0
       {0, 0, _} -> :fizz_buzz
       {0, _, _} -> :fizz
       {_, 0, _} -> :buzz

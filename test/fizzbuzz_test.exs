@@ -19,6 +19,6 @@ defmodule FizzbuzzTest do
 
   test "if number is multiples of neither 3 nor 5, return the number" do
     assert Fizzbuzz.run(1) == 1
-    assert Fizzbuzz.run([1, 2, 4]) == [1, 2, 4]
+    assert Fizzbuzz.run([0, 1, 2]) == [0, 1, 2]
   end
 end
