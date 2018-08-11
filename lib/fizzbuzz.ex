@@ -1,10 +1,10 @@
 defmodule Fizzbuzz do
   @moduledoc """
-  Documentation for Fizzbuzz.
+  Documentation for FizzBuzz.
   """
 
   @doc """
-  Fizzbuz
+  Simple implementation of [FizzBuzz](http://wiki.c2.com/?FizzBuzzTest) in Elixir.
 
   ## Examples
 
