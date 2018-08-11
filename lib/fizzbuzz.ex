@@ -6,6 +6,12 @@ defmodule Fizzbuzz do
   @doc """
   Simple implementation of [FizzBuzz](http://wiki.c2.com/?FizzBuzzTest) in Elixir.
 
+  ## Description
+
+  Write a program that prints the numbers from 1 to 100.
+  For multiples of three print “Fizz” instead of the number and for the multiples of five print "Buzz".
+  For numbers which are multiples of both three and five print "FizzBuzz".
+
   ## Examples
 
       iex> Fizzbuzz.run(15)
@@ -30,8 +36,8 @@ defmodule Fizzbuzz do
         Enum.map(n, fn n -> check(n) end)
 
       n = %Range{} ->
-        for x <- n do
-          check(x)
+        for n <- n do
+          check(n)
         end
     end
   end
