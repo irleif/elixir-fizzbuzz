@@ -40,9 +40,7 @@ defmodule Fizzbuzz do
   end
 
   defp check_number(number) do
-    n = {rem(number, 3), rem(number, 5), number}
-
-    case n do
+    case {rem(number, 3), rem(number, 5), number} do
       {0, 0, 0} -> 0
       {0, 0, _} -> :fizz_buzz
       {0, _, _} -> :fizz
