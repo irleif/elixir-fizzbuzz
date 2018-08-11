@@ -4,13 +4,13 @@ defmodule Fizzbuzz do
 
   ## Program Logic
 
-  * `Fizzbuzz.check()` returns the number it receives, with the following rules applied:
+  * `Fizzbuzz.check()` returns the numbers it receives, with the following rules applied:
   ** For multiples of 3, the atom `:fizz` will be returned instead of the number.
   ** For multiples of 5, the atom `:buzz` will be returned instead of the number.
   ** For multiples of both 3 and 5, the atom `:fizz_buzz` will be returned instead of the number.
   ** For 0, instead of returning the atom `:fizz_buzz`, 0 will be returned.
 
-  As input, the program accepts number, lists and ranges.
+  As input, the program accepts integers, lists of integers and ranges.
 
   ## Examples
 
