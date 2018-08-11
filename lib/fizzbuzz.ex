@@ -38,9 +38,7 @@ defmodule Fizzbuzz do
         Enum.map(n, fn n -> check_number(n) end)
 
       n = %Range{} ->
-        for n <- n do
-          check_number(n)
-        end
+        Enum.map(n, fn n -> check_number(n) end)
     end
   end
 
