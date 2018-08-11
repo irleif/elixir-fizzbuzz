@@ -14,6 +14,9 @@ defmodule Fizzbuzz do
       iex> Fizzbuzz.run([1, 2, 3, 5, 8, 13, 21])
       [1, 2, :fizz, :buzz, 8, 13, :fizz]
 
+      iex> Fizzbuzz.run(1..15)
+      [1, 2, :fizz, 4, :buzz, :fizz, 7, 8, :fizz, :buzz, 11, :fizz, 13, 14, :fizz_buzz]
+
   """
 
   def run(numbers) do
@@ -25,6 +28,11 @@ defmodule Fizzbuzz do
 
       n when is_list(n) ->
         Enum.map(n, fn n -> check(n) end)
+
+      n = %Range{} ->
+        for x <- n do
+          check(x)
+        end
     end
   end
 
