@@ -27,6 +27,10 @@ defmodule Fizzbuzz do
   @doc """
   Check input data type, then do FizzBuzz-check for each value accordingly.
   """
+
+  @typep result :: integer | :fizz | :buzz | :fizz_buzz
+
+  @spec check(integer | list(integer) | Range.t()) :: [result]
   def check(number) do
     case number do
       number when is_integer(number) ->
@@ -39,6 +43,7 @@ defmodule Fizzbuzz do
     end
   end
 
+  @spec check_number(integer) :: result
   defp check_number(number) do
     case {rem(number, 3), rem(number, 5), number} do
       {0, 0, 0} -> 0
