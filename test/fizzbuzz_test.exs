@@ -7,6 +7,11 @@ defmodule FizzbuzzTest do
     assert Fizzbuzz.run([0, 0, 0]) == [0, 0, 0]
   end
 
+  test "if number is multiple of both 3 and 5, return :fizz_buzz" do
+    assert Fizzbuzz.run(15) == :fizz_buzz
+    assert Fizzbuzz.run([15, 30, 45]) == [:fizz_buzz, :fizz_buzz, :fizz_buzz]
+  end
+
   test "if number is multiple of 3, return :fizz" do
     assert Fizzbuzz.run(3) == :fizz
     assert Fizzbuzz.run([3, 6, 9]) == [:fizz, :fizz, :fizz]
@@ -15,11 +20,6 @@ defmodule FizzbuzzTest do
   test "if number is multiple of 5, return :buzz" do
     assert Fizzbuzz.run(5) == :buzz
     assert Fizzbuzz.run([5, 10, 20]) == [:buzz, :buzz, :buzz]
-  end
-
-  test "if number is multiple of both 3 and 5, return :fizz_buzz" do
-    assert Fizzbuzz.run(15) == :fizz_buzz
-    assert Fizzbuzz.run([15, 30, 45]) == [:fizz_buzz, :fizz_buzz, :fizz_buzz]
   end
 
   test "if number is multiples of neither 3 nor 5, return the number" do
