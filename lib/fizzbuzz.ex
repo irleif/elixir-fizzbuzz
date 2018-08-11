@@ -4,13 +4,13 @@ defmodule Fizzbuzz do
 
   ## Program Logic
 
-  * `Fizzbuzz.check()` returns the numbers it receives, with the following rules applied:
+  * `Fizzbuzz.check()` returns the number it receives, with the following rules applied:
   ** For multiples of 3, the atom `:fizz` will be returned instead of the number.
   ** For multiples of 5, the atom `:buzz` will be returned instead of the number.
   ** For multiples of both 3 and 5, the atom `:fizz_buzz` will be returned instead of the number.
   ** For 0, instead of returning the atom `:fizz_buzz`, 0 will be returned.
 
-  As input, the program accepts numbers, lists and ranges.
+  As input, the program accepts number, lists and ranges.
 
   ## Examples
 
@@ -27,18 +27,15 @@ defmodule Fizzbuzz do
   @doc """
   Check input data type, then do FizzBuzz-check for each value accordingly.
   """
-  def check(numbers) do
-    n = numbers
+  def check(number) do
+    case number do
+      number when is_integer(number) ->
+        check_number(number)
 
-    case n do
-      n when is_integer(n) ->
-        check_number(n)
-
-      n when is_list(n) ->
-        Enum.map(n, fn n -> check_number(n) end)
-
-      n = %Range{} ->
-        Enum.map(n, fn n -> check_number(n) end)
+      number ->
+        Enum.map(number, fn n ->
+          check_number(n)
+        end)
     end
   end
 
