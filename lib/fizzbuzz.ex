@@ -24,12 +24,11 @@ defmodule Fizzbuzz do
   [1, 2, :fizz, 4, :buzz, :fizz, 7, 8, :fizz, :buzz, 11, :fizz, 13, 14, :fizz_buzz]
   """
 
+  @typep result :: integer | :fizz | :buzz | :fizz_buzz
+
   @doc """
   Check input data type, then do FizzBuzz-check for each value accordingly.
   """
-
-  @typep result :: integer | :fizz | :buzz | :fizz_buzz
-
   @spec check(integer | [integer] | Range.t()) :: result | [result]
   def check(number) do
     case number do
