@@ -30,7 +30,7 @@ defmodule Fizzbuzz do
 
   @typep result :: integer | :fizz | :buzz | :fizz_buzz
 
-  @spec check(integer | list(integer) | Range.t()) :: [result]
+  @spec check(integer | [integer] | Range.t()) :: result | [result]
   def check(number) do
     case number do
       number when is_integer(number) ->
