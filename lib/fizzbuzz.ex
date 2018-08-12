@@ -43,7 +43,7 @@ defmodule Fizzbuzz do
   end
 
   @spec check_number(integer) :: result
-  defp check_number(number) do
+  defp check_number(number) when is_integer(number) do
     case {rem(number, 3), rem(number, 5), number} do
       {0, 0, 0} -> 0
       {0, 0, _} -> :fizz_buzz
